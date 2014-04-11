@@ -1,0 +1,2 @@
+1.初始化fast-web
+2.上传mini ui demo
