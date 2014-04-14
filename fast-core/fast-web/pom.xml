@@ -19,6 +19,102 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+	<!-- log4j  日志-->  
+    <dependency>  
+        <groupId>log4j</groupId>  
+        <artifactId>log4j</artifactId>  
+        <version>${log4j.version}</version>  
+    </dependency> 
+    <!-- servlet API -->  
+    <dependency>  
+        <groupId>javax.servlet</groupId>  
+        <artifactId>javax.servlet-api</artifactId>  
+        <version>${javax.servlet.version}</version>  
+        <scope>provided</scope>  
+    </dependency>     
+    <!-- MySQL驱动 -->  
+    <dependency>  
+        <groupId>mysql</groupId>  
+        <artifactId>mysql-connector-java</artifactId>  
+        <version>${mysql.version}</version>  
+    </dependency>
+	<!-- fastjson -->  
+    <dependency>  
+        <groupId>com.alibaba</groupId>  
+        <artifactId>fastjson</artifactId>  
+        <version>${fastjson.version}</version>    
+    </dependency>  
+	<!-- struts2 -->  
+    <dependency>  
+        <groupId>org.apache.struts</groupId>  
+        <artifactId>struts2-core</artifactId>  
+        <version>${struts2.version}</version>  
+        <exclusions>  
+            <exclusion>  
+                <groupId>javassist</groupId>  
+                <artifactId>javassist</artifactId>  
+            </exclusion>  
+        </exclusions>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.apache.struts</groupId>  
+        <artifactId>struts2-spring-plugin</artifactId>  
+        <version>${struts2.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.apache.struts</groupId>  
+        <artifactId>  
+                struts2-convention-plugin</artifactId>  
+        <version>${struts2.version}</version>  
+    </dependency>    
+	<!-- spring -->  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-core</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-context</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-jdbc</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-beans</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-web</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-expression</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-orm</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>     
+	<!-- aspectjweaver -->  
+    <dependency>  
+        <groupId>org.aspectj</groupId>  
+        <artifactId>aspectjweaver</artifactId>  
+        <version>${aspectjweaver.version}</version>  
+    </dependency>  
+    <!-- hibernate -->  
+    <dependency>  
+        <groupId>org.hibernate</groupId>  
+        <artifactId>hibernate-core</artifactId>  
+        <version>${hibernate.version}</version>  
+    </dependency>              
   </dependencies>
   <build>
     <finalName>fast-web</finalName>
