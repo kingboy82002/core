@@ -1,2 +1,1 @@
-1.初始化fast-web
-2.上传mini ui demo
+1.添加依赖包
