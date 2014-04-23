@@ -19,6 +19,28 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring.version}</version>
+		<scope>test</scope>
+	</dependency>    
+	<dependency>
+	    <groupId>org.apache.struts</groupId>
+	    <artifactId>struts2-junit-plugin</artifactId>
+	    <version>${struts2.version}</version>
+	    <scope>test</scope>
+	    <exclusions>
+	        <exclusion>
+	          <artifactId>spring-core</artifactId>
+	          <groupId>org.springframework</groupId>
+	        </exclusion>
+	        <exclusion>
+	          <artifactId>spring-test</artifactId>
+	          <groupId>org.springframework</groupId>
+	        </exclusion>	        	    
+	    </exclusions>
+	</dependency>	
 	<!-- log4j  日志-->  
     <dependency>  
         <groupId>log4j</groupId>  
@@ -38,6 +60,12 @@
         <artifactId>mysql-connector-java</artifactId>  
         <version>${mysql.version}</version>  
     </dependency>
+    <!-- mchange C3P0 数据源-->  
+    <dependency>  
+        <groupId>com.mchange</groupId>  
+        <artifactId>c3p0</artifactId>  
+        <version>${com.mchange.version}</version>  
+    </dependency>    
 	<!-- fastjson -->  
     <dependency>  
         <groupId>com.alibaba</groupId>  
@@ -60,13 +88,13 @@
         <groupId>org.apache.struts</groupId>  
         <artifactId>struts2-spring-plugin</artifactId>  
         <version>${struts2.version}</version>  
-    </dependency>  
+    </dependency>
     <dependency>  
         <groupId>org.apache.struts</groupId>  
-        <artifactId>  
-                struts2-convention-plugin</artifactId>  
+        <artifactId>struts2-convention-plugin</artifactId>  
         <version>${struts2.version}</version>  
-    </dependency>    
+        <scope>test</scope>
+    </dependency> 
 	<!-- spring -->  
     <dependency>  
         <groupId>org.springframework</groupId>  
@@ -114,7 +142,18 @@
         <groupId>org.hibernate</groupId>  
         <artifactId>hibernate-core</artifactId>  
         <version>${hibernate.version}</version>  
-    </dependency>              
+    </dependency>  
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
+    </dependency> 
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>${javax.servlet.jsp.version}</version>
+		<scope>test</scope>
+	</dependency>
   </dependencies>
   <build>
     <finalName>fast-web</finalName>
