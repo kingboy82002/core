@@ -10,8 +10,10 @@
     <!-- 该 BeanPostProcessor 将自动对标注@Autowired 的 Bean 进行注入 -->    
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
     <!-- 自动扫描dao和service包(自动注入) -->  
+    <context:component-scan base-package="cn.com.free.db" /> 
     <!--
     <context:component-scan base-package="com.sgl.action,com.sgl.dao.impl,com.sgl.service" /> 
     -->   
-  
+    
+	<bean class="cn.com.free.util.SpringContextUtil" lazy-init="false"/>    
 </beans>

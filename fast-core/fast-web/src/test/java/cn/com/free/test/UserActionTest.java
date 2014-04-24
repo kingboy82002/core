@@ -2,15 +2,22 @@ package cn.com.free.test;
 
 import org.apache.struts2.StrutsSpringTestCase;
 import org.apache.struts2.dispatcher.mapper.ActionMapping;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cn.com.free.action.UserAction;
-import cn.com.free.base.BaseAction;
+import cn.com.free.db.CommonDao;
+import cn.com.free.model.User;
+import cn.com.free.util.SpringContextUtil;
 
 import com.opensymphony.xwork2.ActionProxy;
 
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = {"classpath*:applicationContext.xml"})
 public class UserActionTest extends StrutsSpringTestCase{
 	@Ignore
 	public void testGetActionMapping() throws Exception {
@@ -70,4 +77,20 @@ public class UserActionTest extends StrutsSpringTestCase{
 //		assertEquals("success", result);
 //		assertEquals("FD", action.getParam());
 	}	
+	
+	@Test
+	public void testAddUser(){
+		try {
+			Object obj = SpringContextUtil.getBean("commonDao");
+			System.out.println(obj);
+			CommonDao commonDao = (CommonDao)obj;
+			System.out.println(commonDao.getList(User.class));
+//			User user = new User();
+//			user.setUsername("yzq");
+//			user.setPassword("123");
+//			commonDao.add(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

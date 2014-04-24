@@ -7,6 +7,6 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd 
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd ">
         
-    <bean id="baseAction" class="cn.com.free.base.BaseAction" scope="prototype"></bean>    
-	<bean id="userAction" class="cn.com.free.action.UserAction" scope="prototype" parent="baseAction"></bean>
+    <bean name="baseAction" class="cn.com.free.base.BaseAction" scope="prototype"></bean>    
+	<bean name="userAction" class="cn.com.free.action.UserAction" scope="prototype" parent="baseAction"></bean>
 </beans>
