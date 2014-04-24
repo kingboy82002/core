@@ -25,22 +25,6 @@
 		<version>${spring.version}</version>
 		<scope>test</scope>
 	</dependency>    
-	<dependency>
-	    <groupId>org.apache.struts</groupId>
-	    <artifactId>struts2-junit-plugin</artifactId>
-	    <version>${struts2.version}</version>
-	    <scope>test</scope>
-	    <exclusions>
-	        <exclusion>
-	          <artifactId>spring-core</artifactId>
-	          <groupId>org.springframework</groupId>
-	        </exclusion>
-	        <exclusion>
-	          <artifactId>spring-test</artifactId>
-	          <groupId>org.springframework</groupId>
-	        </exclusion>	        	    
-	    </exclusions>
-	</dependency>	
 	<!-- log4j  日志-->  
     <dependency>  
         <groupId>log4j</groupId>  
@@ -72,29 +56,6 @@
         <artifactId>fastjson</artifactId>  
         <version>${fastjson.version}</version>    
     </dependency>  
-	<!-- struts2 -->  
-    <dependency>  
-        <groupId>org.apache.struts</groupId>  
-        <artifactId>struts2-core</artifactId>  
-        <version>${struts2.version}</version>  
-        <exclusions>  
-            <exclusion>  
-                <groupId>javassist</groupId>  
-                <artifactId>javassist</artifactId>  
-            </exclusion>  
-        </exclusions>  
-    </dependency>  
-    <dependency>  
-        <groupId>org.apache.struts</groupId>  
-        <artifactId>struts2-spring-plugin</artifactId>  
-        <version>${struts2.version}</version>  
-    </dependency>
-    <dependency>  
-        <groupId>org.apache.struts</groupId>  
-        <artifactId>struts2-convention-plugin</artifactId>  
-        <version>${struts2.version}</version>  
-        <scope>test</scope>
-    </dependency> 
 	<!-- spring -->  
     <dependency>  
         <groupId>org.springframework</groupId>  
@@ -131,6 +92,11 @@
         <artifactId>spring-orm</artifactId>  
         <version>${spring.version}</version>  
     </dependency>     
+	<dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-webmvc</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>    
 	<!-- aspectjweaver -->  
     <dependency>  
         <groupId>org.aspectj</groupId>  

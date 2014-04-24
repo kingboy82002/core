@@ -30,7 +30,7 @@ public class CommonDao extends MyHibernateBaseDao{
 		});
 	}
 	
-	public <T> Object getList(final Class clazz){
+	public <T> Object getList(final Class<T>  clazz){
 		@SuppressWarnings("rawtypes")
 		List list = (List) this.execute(new Callback(){
 			@Override
