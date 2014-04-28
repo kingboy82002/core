@@ -25,16 +25,6 @@ public class EhcacheTest {
     @Autowired  
     private CommonDao commonDao;
     
-	@Before  
-    public void init() {  
-//        ApplicationContext ctx = new ClassPathXmlApplicationContext(  
-//                "applicationContext.xml");  
-//        EhCacheCacheManager ehCacheManager = (EhCacheCacheManager) ctx  
-//                .getBean("cacheManager");  
-//        cacheManager = ehCacheManager.getCacheManager();  
-//        cache = cacheManager.getCache("userCache");  
-    }
-	
 	@Test
 	public void test(){
 		EhCacheCacheManager ehCacheManager = (EhCacheCacheManager)ctx.getBean("cacheManager");
