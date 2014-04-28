@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
 
 public class CommonDao extends MyHibernateBaseDao{
@@ -29,6 +30,33 @@ public class CommonDao extends MyHibernateBaseDao{
 			}
 		});
 	}
+	
+	@Transactional
+	public void update(final Object obj){
+		this.execute(new Callback(){
+			@Override
+			public Object doIt(Session session) {
+				session.update(obj);
+				return null;
+			}
+		});
+	}
+	
+	public <T> Object findById(final long id,final Class<T>  clazz){
+		@SuppressWarnings("rawtypes")
+		List list = (List) this.execute(new Callback(){
+			@Override
+			public Object doIt(Session session) {
+				Criteria criteria = session.createCriteria(clazz);
+				criteria.add(Restrictions.eq("id", id));
+				return criteria.list();
+			}
+		});
+		if(list.size()>0){
+			return list.get(0);
+		}
+		return null;
+	}	
 	
 	public <T> Object getList(final Class<T>  clazz){
 		@SuppressWarnings("rawtypes")

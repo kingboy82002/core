@@ -24,5 +24,6 @@
   	<hibernate.version>4.2.0.Final</hibernate.version>
   	<slf4j.version>1.7.5</slf4j.version>
   	<javax.servlet.jsp.version>2.3.1</javax.servlet.jsp.version>
+  	<ehcache.version>2.6.6</ehcache.version>
   </properties>
 </project>
