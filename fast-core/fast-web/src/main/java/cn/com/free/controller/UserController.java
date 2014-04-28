@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import cn.com.free.db.CommonDao;
-import cn.com.free.model.User;
+import cn.com.free.model.Users;
 
 @Controller
 @RequestMapping("/user/*")
@@ -29,7 +29,7 @@ public class UserController {
     public String index(@RequestParam(value="username")String username, HttpServletRequest request) {
 		System.out.println(username);
 		request.setAttribute("msg", "我成功啦");
-		User user = new User();
+		Users user = new Users();
 		user.setUsername(username);
 		user.setPassword("123");
 		commonDao.add(user);
@@ -70,7 +70,7 @@ public class UserController {
     }
 	
 	@RequestMapping("/test/login3.do")
-    public ModelAndView testLogin3(User user) {
+    public ModelAndView testLogin3(Users user) {
         // 同样支持参数为表单对象，类似于Struts的ActionForm，User不需要任何配置，直接写即可
         String username = user.getUsername();
         String password = user.getPassword();

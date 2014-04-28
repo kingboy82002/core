@@ -14,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cn.com.free.db.CommonDao;
-import cn.com.free.model.User;
+import cn.com.free.model.Users;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:applicationContext.xml"})
@@ -37,7 +37,7 @@ public class EhcacheTest {
 		System.out.println(element1.getObjectValue());
 		
 		System.out.println("============================================");
-		User user = (User)commonDao.findById(12, User.class);
+		Users user = (Users)commonDao.findById(12, Users.class);
 		Element element3 = new Element("aaaa", user); 
 		cache.put(element3);
 		

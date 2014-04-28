@@ -2,6 +2,8 @@ package cn.com.free.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +15,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="mgr_user")
-public class User implements Serializable {
+public class Users implements Serializable {
 
 	/**
 	 * 
@@ -32,6 +34,17 @@ public class User implements Serializable {
 	
 	@Column(name="password",nullable=false,length=20)
     private String password;
+	
+	private Set<Roles> roles = new HashSet<Roles>();
+	
+
+	public Set<Roles> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Roles> roles) {
+		this.roles = roles;
+	}
 
 	public long getId() {
 		return id;
@@ -86,7 +99,7 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Users other = (Users) obj;
 		if (id != other.id)
 			return false;
 		if (password == null) {
