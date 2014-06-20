@@ -1,4 +1,4 @@
-package cn.com.free.db;
+package cn.com.free.db.dao;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ public class CommonDao extends MyHibernateBaseDao{
 	
 	@Transactional
 	public void add(final Object obj){
-		this.execute(new Callback(){
+		this.execute(new DBCallback(){
 			@Override
-			public Object doIt(Session session) {
+			public Object doTransactional(Session session) {
 				session.save(obj);
 				return null;
 			}
@@ -22,9 +22,9 @@ public class CommonDao extends MyHibernateBaseDao{
 	
 	@Transactional
 	public void delete(final Object obj){
-		this.execute(new Callback(){
+		this.execute(new DBCallback(){
 			@Override
-			public Object doIt(Session session) {
+			public Object doTransactional(Session session) {
 				session.delete(obj);
 				return null;
 			}
@@ -33,9 +33,9 @@ public class CommonDao extends MyHibernateBaseDao{
 	
 	@Transactional
 	public void update(final Object obj){
-		this.execute(new Callback(){
+		this.execute(new DBCallback(){
 			@Override
-			public Object doIt(Session session) {
+			public Object doTransactional(Session session) {
 				session.update(obj);
 				return null;
 			}
@@ -44,9 +44,9 @@ public class CommonDao extends MyHibernateBaseDao{
 	
 	public <T> Object findById(final long id,final Class<T>  clazz){
 		@SuppressWarnings("rawtypes")
-		List list = (List) this.execute(new Callback(){
+		List list = (List) this.execute(new DBCallback(){
 			@Override
-			public Object doIt(Session session) {
+			public Object doTransactional(Session session) {
 				Criteria criteria = session.createCriteria(clazz);
 				criteria.add(Restrictions.eq("id", id));
 				return criteria.list();
@@ -60,9 +60,9 @@ public class CommonDao extends MyHibernateBaseDao{
 	
 	public <T> Object getList(final Class<T>  clazz){
 		@SuppressWarnings("rawtypes")
-		List list = (List) this.execute(new Callback(){
+		List list = (List) this.execute(new DBCallback(){
 			@Override
-			public Object doIt(Session session) {
+			public Object doTransactional(Session session) {
 				Criteria criteria = session.createCriteria(clazz);
 				return criteria.list();
 			}

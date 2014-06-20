@@ -5,7 +5,7 @@
   <parent>
     <artifactId>fast-core</artifactId>
     <groupId>cn.com.free</groupId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <relativePath>..</relativePath>
   </parent>
   <artifactId>fast-web</artifactId>

@@ -5,10 +5,13 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,6 +38,7 @@ public class Users implements Serializable {
 	@Column(name="password",nullable=false,length=20)
     private String password;
 	
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REFRESH,CascadeType.REMOVE }, fetch = FetchType.LAZY, mappedBy = "user")
 	private Set<Roles> roles = new HashSet<Roles>();
 	
 

@@ -1,4 +1,4 @@
-package cn.com.free.db;
+package cn.com.free.db.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,14 +17,14 @@ public class MyHibernateBaseDao{
 			session.close();
 	}
 	
-	public interface Callback {
-        Object doIt(Session session);
+	public interface DBCallback {
+		<T> Object doTransactional(Session session);
     }
 	
-	public <T> Object execute(Callback callback) {
+	public <T> Object execute(DBCallback callback) {
 		Session session = openHibernateSession();
         try {
-            return callback.doIt(session);
+            return callback.doTransactional(session);
         } finally {
         	closeHibernateSession(session);
         }

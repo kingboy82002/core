@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.User;
@@ -11,13 +12,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import cn.com.free.db.UsersDao;
+import cn.com.free.db.dao.UsersDao;
 import cn.com.free.model.Resources;
 import cn.com.free.model.Roles;
 import cn.com.free.model.Users;
 
 public class MyUserDetailServiceImpl implements UserDetailsService {
-
+	@Autowired
 	private UsersDao usersDao;  
     public UsersDao getUsersDao() {  
         return usersDao;  

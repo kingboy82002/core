@@ -4,21 +4,22 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
            http://www.springframework.org/schema/security
-           http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+    
+     <!-- 不要过滤图片等静态资源，其中**代表可以跨越目录，*不可以跨越目录。 -->
+	  <http pattern="/**/*.jpg" security="none"  />
+	  <http pattern="/**/*.png" security="none" />
+	  <http pattern="/**/*.gif" security="none" />
+	  <http pattern="/**/*.css" security="none" />
+	  <http pattern="/**/*.js" security="none" />
+	  <!-- 登录页面和忘记密码页面不过滤 -->
+	  <http pattern="/login.jsp" security="none" />
+	  <http pattern="/jsp/forgotpassword.jsp"   security="none" /> 
+	  <http pattern="/user/**" security="none" />
     
      <http use-expressions="true" auto-config="true" access-denied-page="/accessDenied.jsp">
-		  <!-- 不要过滤图片等静态资源，其中**代表可以跨越目录，*不可以跨越目录。 -->
-		  <intercept-url pattern="/**/*.jpg" filters="none" />
-		  <intercept-url pattern="/**/*.png" filters="none" />
-		  <intercept-url pattern="/**/*.gif" filters="none" />
-		  <intercept-url pattern="/**/*.css" filters="none" />
-		  <intercept-url pattern="/**/*.js" filters="none" />
-		  <!-- 登录页面和忘记密码页面不过滤 -->
-		  <intercept-url pattern="/login.jsp" filters="none" />
-		  <intercept-url pattern="/jsp/forgotpassword.jsp"   filters="none" /> 
-		
 		  <form-login login-page="/login.jsp"  authentication-failure-url="/login.jsp?error=true"   default-target-url="/index.jsp" />
-		  <logout/>
+		  <logout logout-url="/logout.jsp" logout-success-url="/login.jsp"/>
 		  
 		  <custom-filter before="FILTER_SECURITY_INTERCEPTOR"  ref="myFilter" />
 		  <!-- "记住我"功能，采用持久化策略（将用户的登录信息存放在数据库表中） -->
@@ -46,17 +47,20 @@
 	                <salt-source user-property="username" />
 	           </password-encoder>
 	      </authentication-provider>
-	 </authentication-manager>     
+	 </authentication-manager>    
+	 
+	 <!-- 用户的密码加密或解密 -->
+ 	<beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
     
-    <beans:bean id="myUserDetailServiceImpl" class="com.huaxin.security.MyUserDetailServiceImpl" >
-    	<beans:property name="usersDao" ref="usersDao"></beans:property>
+    <beans:bean id="myUserDetailServiceImpl" class="cn.com.free.security.MyUserDetailServiceImpl" >
+    	<!-- <beans:property name="usersDao" ref="usersDao"></beans:property>  -->
     </beans:bean>
 
     <!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->
-    <beans:bean id="myAccessDecisionManager" class="com.huaxin.security.MyAccessDecisionManager"/>
+    <beans:bean id="myAccessDecisionManager" class="cn.com.free.security.MyAccessDecisionManager"/>
     
     <!-- 资源源数据定义，即定义某一资源可以被哪些角色访问 -->
-    <beans:bean id="mySecurityMetadataSource" class="com.huaxin.security.MySecurityMetadataSource" >
+    <beans:bean id="mySecurityMetadataSource" class="cn.com.free.security.MySecurityMetadataSource" >
     	<beans:constructor-arg name="resourcesDao" ref="resourcesDao"></beans:constructor-arg>
     </beans:bean>
 </beans:beans>

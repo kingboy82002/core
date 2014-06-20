@@ -14,7 +14,7 @@ import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 
-import cn.com.free.db.ResourcesDao;
+import cn.com.free.db.dao.ResourcesDao;
 import cn.com.free.model.Resources;
   
 //1 加载资源与权限的对应关系    
@@ -81,6 +81,7 @@ public class MySecurityMetadataSource implements
         if(resourceMap == null) {  
             loadResourceDefine();  
         }  
+        System.out.println(resourceMap.get(requestUrl));
         return resourceMap.get(requestUrl);  
     }  
 }

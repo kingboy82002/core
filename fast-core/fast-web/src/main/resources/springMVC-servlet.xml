@@ -19,13 +19,14 @@
             http://www.springframework.org/schema/context 
             http://www.springframework.org/schema/context/spring-context-3.0.xsd"> 
     
+    
     <!-- 启用spring mvc 注解 -->
     <context:annotation-config />
+    <!-- 自动扫描dao和service包(自动注入) -->  
+    <context:component-scan base-package="cn" /> 
+    <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->     
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />     
     
-    <context:component-scan base-package="cn.com.free.controller" /> 
-    
-    <!-- 完成请求和注解POJO的映射 -->
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
     <!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/jsp/"/>
