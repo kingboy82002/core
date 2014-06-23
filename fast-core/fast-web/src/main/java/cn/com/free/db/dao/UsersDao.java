@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Repository;
 
 import cn.com.free.model.Users;
 

@@ -4,25 +4,25 @@ package cn.com.free.controller;
  * 系统用户管理
  */
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.com.free.db.dao.CommonDao;
+import cn.com.free.model.Test;
 
 @Controller
 @RequestMapping("/user/")
-public class UserController {
+public class UserController extends BaseController{
 	@Autowired
 	private CommonDao commonDao;
 	
 	@RequestMapping("/index")
 	public String index(String name){
 		System.out.println("我是用户页面");
-//		System.out.println("commonDao:"+commonDao);
-//		Test t = new Test();
-//		t.setName("aaa");
-//		commonDao.add(t);
+		System.out.println("commonDao:"+commonDao);
+		Test t = new Test();
+		t.setName("bbb");
+		commonDao.add(t);
 		return "/user/success";
 	}
 	

@@ -9,10 +9,10 @@
     ">  
     <!-- 启用spring mvc 注解 -->
     <context:annotation-config />
-    <!-- 自动扫描dao和service包(自动注入) -->  
-    <context:component-scan base-package="cn" /> 
     <!-- 该 BeanPostProcessor 将自动对标注@Autowired 的 Bean 进行注入 -->    
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <!-- 自动扫描dao和service包(自动注入) -->  
+    <context:component-scan base-package="cn" /> 
     
 	<!-- Spring-Security的相关配置 -->    
 	<!-- 用户的密码加密或解密 -->

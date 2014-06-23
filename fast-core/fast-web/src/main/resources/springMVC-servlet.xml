@@ -22,14 +22,32 @@
     
     <!-- 启用spring mvc 注解 -->
     <context:annotation-config />
+    <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->     
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
+	    <property name="messageConverters">  
+	        <list>  
+	            <bean  
+	                class="org.springframework.http.converter.StringHttpMessageConverter">  
+	                <property name="supportedMediaTypes">  
+	                    <list>  
+	                        <bean class="org.springframework.http.MediaType">  
+	                            <constructor-arg index="0" value="text" />  
+	                            <constructor-arg index="1" value="plain" />  
+	                            <constructor-arg index="2" value="UTF-8" />  
+	                        </bean>  
+	                    </list>  
+	                </property>  
+	            </bean>  
+	        </list>  
+	    </property>     
+    </bean>
     <!-- 自动扫描dao和service包(自动注入) -->  
     <context:component-scan base-package="cn" /> 
-    <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->     
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />     
     
+	
     <!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/jsp/"/>
-        <property name="suffix" value=".jsp"/>    	
+        <property name="suffix" value=".html"/>    	
     </bean>
 </beans>

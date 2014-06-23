@@ -55,8 +55,4 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<tx:annotation-driven transaction-manager="txManager" />
-	
-	<bean name="baseDao" class="cn.com.free.db.MyHibernateBaseDao"></bean>
-	<bean name="commonDao" class="cn.com.free.db.CommonDao" parent="baseDao">
-	</bean>  	
 </beans>
